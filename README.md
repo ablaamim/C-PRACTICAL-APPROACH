@@ -4,7 +4,7 @@ This approach is designed to teach **C++ programming** through hands-on exercise
 
 </p>
 <p align="center">
-<img src="" width="500">
+<img src="https://github.com/ablaamim/C-PRACTICAL-APPROACH/blob/main/imgs/marvin.jpg" width="500">
 </p>
 
 ---
@@ -99,4 +99,175 @@ Output:
 
 ```
 GOLDEN RATIO value: 1.61
+```
+
+## Preprocessor Macros and Examples
+
+Preprocessor macros are handled before compilation during the preprocessing stage.
+
+1. Object-like Macro (#define)
+
+```C
+#define GOLDEN_RATIO 1.61
+std::cout << "Value of Golden Ratio: " << GOLDEN_RATIO << std::endl;
+GOLDEN_RATIO is replaced with 1.61 before compilation.
+```
+
+2. Function-like Macro
+
+```C
+#define SQUARE(x) ((x) * (x))
+std::cout << "Square of 5: " << SQUARE(5) << std::endl; // Expands to (5 * 5)
+```
+3. Conditional Compilation (#ifdef, #ifndef)
+```C
+#define DEBUG
+#ifdef DEBUG
+    std::cout << "Debugging mode enabled!" << std::endl;
+#endif
+```
+
+If DEBUG is defined, the message is printed.
+
+4. Header Guard (#ifndef, #define, #endif)
+
+Used to prevent multiple inclusions of a header file:
+
+```C
+#ifndef MY_HEADER_H
+#define MY_HEADER_H
+
+void myFunction();
+
+#endif // MY_HEADER_H
+```
+
+## Examples
+
+### Example 1 : Understanding the Preprocessor
+
+> Write a program that:
+Defines a constant PI = 3.14159 using #define.
+Defines a macro function SQUARE(x) that squares a number.
+Prints SQUARE(4) and the value of PI.
+
+```C
+#include <iostream>
+#define PI 3.14159
+#define SQUARE(x) ((x) * (x))
+
+int main() {
+    std::cout << "Pi value: " << PI << std::endl;
+    std::cout << "Square of 4: " << SQUARE(4) << std::endl;
+    return 0;
+}
+```
+
+Expected Output:
+
+```
+Pi value: 3.14159
+Square of 4: 16
+```
+
+### Example 2: Debug Mode with Macros
+
+> Write a program that:
+Uses a #define DEBUG macro.
+If DEBUG is defined, prints "Debug mode enabled!".
+```C
+#include <iostream>
+#define DEBUG
+
+int main() {
+#ifdef DEBUG
+    std::cout << "Debug mode enabled!" << std::endl;
+#endif
+    return 0;
+}
+```
+
+Compile with and without the DEBUG macro:
+
+```
+g++ -DDEBUG main.cpp -o main
+./main
+```
+
+### Example 3: Understanding Compilation Steps
+
+> Write a simple C++ program.
+Compile it step by step:
+Preprocess using:
+
+```
+g++ -E main.cpp -o main.i
+```
+
+Compile to assembly using:
+
+```
+g++ -S main.i -o main.s
+```
+
+Assemble to object file using:
+
+```
+g++ -c main.s -o main.o
+```
+
+Link to produce the final executable:
+
+```
+g++ main.o -o main
+```
+
+Print each generated file to observe the differences.
+
+### Example 4: Using Header Guards
+
+Create a header file myHeader.hpp:
+
+```C
+#ifndef MYHEADER_HPP
+#define MYHEADER_HPP
+
+void sayHello();
+
+#endif
+```
+
+Create an implementation file myHeader.cpp:
+
+```C
+#include <iostream>
+#include "myHeader.hpp"
+
+void sayHello() {
+    std::cout << "Hello from the header file!" << std::endl;
+}
+
+```
+
+Create a main.cpp file:
+
+```C
+#include "myHeader.hpp"
+
+int main() {
+    sayHello();
+    return 0;
+}
+```
+Compile and run:
+
+```
+g++ myHeader.cpp main.cpp -o main
+./main
+```
+
+Expected Output:
+
+```
+Hello from the header file!
 ```
