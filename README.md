@@ -114,9 +114,6 @@ int main()
     return (0);
 }
 ```
-##Why Use -std=c++17 flag when Compiling C++ Code?
-
-When compiling a C++ program with g++, the flag -std=c++17 specifies the C++ standard version. It tells the compiler to use the C++17 standard, which provides improvements and new features over older versions like C++11 and C++14.
 
 # **Why Use `-std=c++17` When Compiling C++?**
 When compiling a C++ program with `g++`, the flag `-std=c++17` **specifies the C++ standard version**. It tells the compiler to use the **C++17 standard**, which provides **improvements and new features** over older versions like **C++11** and **C++14**.
@@ -151,21 +148,21 @@ g++ -E -std=c++17 main.cpp -o main.i
 
 ## Compilation to Assembly (-S option)
 ```
-g++ -S main.i -o main.s
+g++ -S -std=c++17 main.i -o main.s
 ```
 * Converts the preprocessed C++ code into assembly instructions.
 * Produces main.s.
 
 3. Assembly to Machine Code (-c option)
 ```
-g++ -c main.s -o main.o
+g++ -c -std=c++17 main.s -o main.o
 ```
 * Translates assembly into binary machine code.
 * Produces main.o.
 
 4. Linking to Create Executable
 ```
-g++ main.o -o main
+g++ -std=c++17 main.o -o main
 ```
 
 * Produces the final executable file: main.
@@ -220,6 +217,13 @@ void myFunction();
 
 #endif // MY_HEADER_H
 ```
+
+incredible C++ history fact: Bjarne Stroustrup was inspired by his own legs when he wrote the C++ compiler error.
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/C-PRACTICAL-APPROACH/blob/main/imgs/Evhzp8NXUAI1WQI.jpg" width="500">
+</p>
 
 ## Examples
 
@@ -408,3 +412,104 @@ Key Points:
 ✅ Best practice: Avoid using namespace std; in large projects to prevent conflicts.
 
 ---
+# **Chapter 2: Compile-Time vs. Runtime Variables in C++**
+## **Introduction**
+In C++, variables can either be determined **at compile-time** or **at runtime**. Understanding this distinction helps you write **optimized, efficient, and error-free** code.  
+
+This chapter covers:
+- The difference between **compile-time and runtime variables**.
+- The use of **`const` and `constexpr`**.
+- How to decide between **`const` and `constexpr`**.
+- A practical example using an **addition function**.
+
+---
+
+## **2.1 Compile-Time vs. Runtime: What’s the Difference?**
+When you declare a variable, its value is either **known before execution (compile-time)** or **determined while the program runs (runtime)**.
+
+| **Feature**      | **Compile-Time**                     | **Runtime**                       |
+|-----------------|---------------------------------|---------------------------------|
+| **When evaluated?** | During program compilation | While the program is running |
+| **Performance**  | Faster (resolved before execution) | Slightly slower (computed dynamically) |
+| **Can depend on user input?** | ❌ No  | ✅ Yes |
+| **Memory usage** | May not take space if optimized | Allocated in RAM during execution |
+| **Modifiable?**  | ❌ No  | ✅ Yes |
+
+### **Example: Compile-Time vs. Runtime Variables**
+```cpp
+#include <iostream>
+
+constexpr int compileTimeVar = 10;  // Known at compile-time
+int runtimeVar;  // Declared but assigned later
+
+int main() {
+    runtimeVar = 20;  // Assigned during execution
+
+    std::cout << "Compile-Time Value: " << compileTimeVar << std::endl;
+    std::cout << "Runtime Value: " << runtimeVar << std::endl;
+
+    return 0;
+}
+
+✅ compileTimeVar is evaluated at compile-time and cannot change.
+✅ runtimeVar is determined at runtime, meaning its value can change.
+
+## Understanding const Variables
+
+A const variable is read-only, meaning its value cannot change after it has been initialized. However, it can be evaluated at runtime.
+
+Example: Using const Variables
+```cpp
+#include <iostream>
+
+int main() {
+    const int x = 5;  // Read-only variable
+    std::cout << "x: " << x << std::endl;
+    
+    // x = 10;  // ❌ ERROR: Cannot modify a const variable
+
+    return 0;
+}
+```
+✅ Key Properties of const:
+
+Can hold values known at runtime.
+Stored in memory like regular variables.
+Cannot be modified after initialization.
+
+## Understanding constexpr Variables
+A constexpr variable must be evaluated at compile-time. It cannot depend on runtime input.
+
+Example: Using constexpr Variables
+
+```cpp
+#include <iostream>
+
+constexpr int square(int x)
+{
+    return x * x;  // Computed at compile-time
+}
+
+int main()
+{
+    constexpr int result = square(5);  // ✅ Evaluated at compile-time
+    std::cout << "Square of 5: " << result << std::endl;
+
+    return 0;
+}
+```
+✅ Key Properties of constexpr:
+
+The value must be known at compile-time.
+constexpr functions allow calculations at compile-time.
+If used with runtime values, it fails to compile.
+
+## When to Use `const` vs. `constexpr`**
+
+| **Use Case**                                    | **Recommended Keyword** |
+|-------------------------------------------------|------------------------|
+| Immutable values that may change at runtime     | `const`               |
+| Constants known at compile-time                 | `constexpr`           |
+| Optimizing calculations at compile-time         | `constexpr`           |
+| Function parameters that should not be modified | `const`               |
+| Ensuring function execution happens at compile-time | `constexpr`     |
