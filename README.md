@@ -52,7 +52,7 @@ Now, let’s get back to **conquering C++**—one **segmentation fault** at a ti
 
 </p>
 <p align="center">
-<img src="" width="500">
+<img src="https://github.com/ablaamim/C-PRACTICAL-APPROACH/blob/main/imgs/funny-programming-memes-february-11-2024-5.png" width="500">
 </p>
 
 > Learning curve for normal and mentally challenged people.
