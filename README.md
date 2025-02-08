@@ -412,7 +412,7 @@ Key Points:
 ✅ Best practice: Avoid using namespace std; in large projects to prevent conflicts.
 
 ---
-# **Chapter 2: Compile-Time vs. Runtime Variables in C++**
+#  Compile-Time vs. Runtime Variables in C++
 ## **Introduction**
 In C++, variables can either be determined **at compile-time** or **at runtime**. Understanding this distinction helps you write **optimized, efficient, and error-free** code.  
 
@@ -513,3 +513,9 @@ If used with runtime values, it fails to compile.
 | Optimizing calculations at compile-time         | `constexpr`           |
 | Function parameters that should not be modified | `const`               |
 | Ensuring function execution happens at compile-time | `constexpr`     |
+
+
+</p>
+<p align="center">
+<img src="https://us1.discourse-cdn.com/spiceworks/original/4X/f/7/5/f751776beea7ca000875724230a6bdb59d8e507c.gif" width="500">
+</p>
