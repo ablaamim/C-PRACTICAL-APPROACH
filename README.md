@@ -1,4 +1,4 @@
-# **C++ - A Practical Approach**
+# **C++ A Practical Approach**
 
 This approach is designed to teach **C++ programming** through hands-on exercises. Each chapter introduces **fundamental concepts**, followed by **exercises** to reinforce learning.
 
@@ -9,7 +9,7 @@ This approach is designed to teach **C++ programming** through hands-on exercise
 
 ---
 
-# **Chapter 1: Understanding the C++ Compilation Process**
+# **Chapter 1  Understanding the C++ Compilation Process**
 ## **Introduction**
 Before writing C++ programs, it's crucial to understand how they are **compiled and executed**. The compilation process transforms **human-readable C++ code** into **machine-executable binary files**.  
 
@@ -24,24 +24,32 @@ In this chapter, we will explore:
 ## **1.1 The C++ Compilation Process**
 When you compile a C++ program, it undergoes **four main stages**:
 
-### **Step 1: Preprocessing (`.cpp → .i`)**
+### **Step 1  Preprocessing (`.cpp → .i`)**
 - The **preprocessor** expands macros, includes header files, and removes comments.
 - Directives like `#include`, `#define`, and `#ifdef` are processed.
 - The output is a preprocessed file (`.i`).
 
-### **Step 2: Compilation (`.i → .s`)**
+### **Step 2  Compilation (`.i → .s`)**
 - The compiler converts the **preprocessed code** into **assembly language**.
 - It also checks for **syntax errors**.
 
-### **Step 3: Assembly (`.s → .o/.obj`)**
+### **Step 3  Assembly (`.s → .o/.obj`)**
 - The assembler translates **assembly code** into **machine code**.
 - Produces an **object file** (`.o` on Linux/macOS, `.obj` on Windows).
 
-### **Step 4: Linking (`.o → Executable`)**
+### **Step 4  Linking (`.o → Executable`)**
 - Combines object files and **external libraries** to create an **executable program**.
 - Resolves function references from libraries (like the **C++ Standard Library**).
 
 ---
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/C-PRACTICAL-APPROACH/blob/main/imgs/GCC_CompilationProcess.png" width="500">
+</p>
+
+---
+
 
 ## **1.2 Compilation Example Using `g++`**
 Let's consider a simple C++ program **(`main.cpp`)**:
@@ -224,7 +232,7 @@ g++ main.o -o main
 
 Print each generated file to observe the differences.
 
-### Example 4: Using Header Guards
+### Example 4 : using header Guards
 
 Create a header file myHeader.hpp:
 
