@@ -164,10 +164,11 @@ Prints SQUARE(4) and the value of PI.
 #define PI 3.14159
 #define SQUARE(x) ((x) * (x))
 
-int main() {
+int main()
+{
     std::cout << "Pi value: " << PI << std::endl;
     std::cout << "Square of 4: " << SQUARE(4) << std::endl;
-    return 0;
+    return (0);
 }
 ```
 
@@ -187,7 +188,8 @@ If DEBUG is defined, prints "Debug mode enabled!".
 #include <iostream>
 #define DEBUG
 
-int main() {
+int main()
+{
 #ifdef DEBUG
     std::cout << "Debug mode enabled!" << std::endl;
 #endif
@@ -251,7 +253,8 @@ Create an implementation file myHeader.cpp:
 #include <iostream>
 #include "myHeader.hpp"
 
-void sayHello() {
+void sayHello()
+{
     std::cout << "Hello from the header file!" << std::endl;
 }
 
