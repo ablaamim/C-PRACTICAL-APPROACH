@@ -442,7 +442,8 @@ When you declare a variable, its value is either **known before execution (compi
 constexpr int compileTimeVar = 10;  // Known at compile-time
 int runtimeVar;  // Declared but assigned later
 
-int main() {
+int main()
+{
     runtimeVar = 20;  // Assigned during execution
 
     std::cout << "Compile-Time Value: " << compileTimeVar << std::endl;
@@ -462,13 +463,14 @@ Example: Using const Variables
 ```cpp
 #include <iostream>
 
-int main() {
+int main()
+{
     const int x = 5;  // Read-only variable
     std::cout << "x: " << x << std::endl;
     
     // x = 10;  // ❌ ERROR: Cannot modify a const variable
 
-    return 0;
+    return (0);
 }
 ```
 ✅ Key Properties of const:
@@ -517,5 +519,5 @@ If used with runtime values, it fails to compile.
 
 </p>
 <p align="center">
-<img src="https://us1.discourse-cdn.com/spiceworks/original/4X/f/7/5/f751776beea7ca000875724230a6bdb59d8e507c.gif" width="500">
+<img src="https://us1.discourse-cdn.com/spiceworks/original/4X/f/7/5/f751776beea7ca000875724230a6bdb59d8e507c.gif" width="800">
 </p>
