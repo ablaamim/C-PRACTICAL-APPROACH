@@ -75,7 +75,7 @@ A **file descriptor** is a **non-negative integer** that the **operating system*
 
 </p>
 <p align="center">
-<img src="https://www.computerhope.com/jargon/f/file-descriptor-illustration.pngg" width="500">
+<img src="https://www.computerhope.com/jargon/f/file-descriptor-illustration.png" width="400">
 </p>
 
 ---
