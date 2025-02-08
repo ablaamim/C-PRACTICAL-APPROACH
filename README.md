@@ -114,12 +114,33 @@ int main()
     return (0);
 }
 ```
+##Why Use -std=c++17 flag when Compiling C++ Code?
+
+When compiling a C++ program with g++, the flag -std=c++17 specifies the C++ standard version. It tells the compiler to use the C++17 standard, which provides improvements and new features over older versions like C++11 and C++14.
+
+# **Why Use `-std=c++17` When Compiling C++?**
+When compiling a C++ program with `g++`, the flag `-std=c++17` **specifies the C++ standard version**. It tells the compiler to use the **C++17 standard**, which provides **improvements and new features** over older versions like **C++11** and **C++14**.
+
+---
+
+## **1️⃣ Why Not Use Older Standards?**
+Some **older C++ standards** are still used, but they **lack modern features** and may cause **performance or safety issues**.  
+
+| **Standard**  | **Why You Shouldn't Use It** |
+|--------------|------------------------------|
+| **C++98**    | No smart pointers, lacks modern features, verbose. |
+| **C++03**    | Just minor fixes, still lacks C++11 features. |
+| **C++11**    | Introduced great features, but lacks structured bindings and `if constexpr`. |
+| **C++14**    | Small improvements, but no `std::filesystem` or `std::optional`. |
+| **C++17**    | ✅ **Balanced, widely supported, modern, and stable**. |
+
+---
 
 ## Step-by-Step Compilation Commands
 
 1. Preprocessing (-E option)
 ```
-g++ -E main.cpp -o main.i
+g++ -E -std=c++17 main.cpp -o main.i
 ```
 
 * Expands macros (GOLDEN_RATIO is replaced with 1.61).
