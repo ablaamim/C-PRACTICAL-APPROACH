@@ -59,6 +59,69 @@ Now, let’s get back to **conquering C++**—one **segmentation fault** at a ti
 
 ---
 
+## **File Descriptors and Their Relation to `cin`, `cout`, and `cerr`**
+
+## **What Are File Descriptors?**
+A **file descriptor** is a **non-negative integer** that the **operating system** uses to **reference an open file** (or another I/O resource like a socket or pipe). They serve as **handles** by which programs can **read from** or **write to** these resources.
+
+### **Common File Descriptors in Unix-Like Systems**
+| **File Descriptor** | **Purpose**                |
+|---------------------|----------------------------|
+| **0**               | **Standard Input**         |
+| **1**               | **Standard Output**        |
+| **2**               | **Standard Error Output**  |
+
+---
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/C-PRACTICAL-APPROACH/blob/main/imgs/https://www.computerhope.com/jargon/f/file-descriptor-illustration.pngg" width="500">
+</p>
+
+---
+
+## **Standard Streams in C++**
+In **C++**, we have three **standard streams** that are **closely tied** to these file descriptors:
+
+1. **`std::cin` (Standard Input Stream)**  
+   - Corresponds to **file descriptor `0`**.  
+   - Used to **read input** from the user (often via keyboard).
+
+2. **`std::cout` (Standard Output Stream)**  
+   - Corresponds to **file descriptor `1`**.  
+   - Used to **write output** to the screen (or another output device).
+
+3. **`std::cerr` (Standard Error Stream)**  
+   - Corresponds to **file descriptor `2`**.  
+   - Used to **write error messages**, ensuring they appear **immediately** (often unbuffered).
+
+---
+
+## **How They Work Together**
+- **File descriptors** are the **lowest-level** constructs handled by the **operating system**.  
+- **C++ streams** (`cin`, `cout`, `cerr`) are **high-level abstractions** that provide **buffered I/O** and **type-safe operations** on top of those file descriptors.
+
+### **Example:**
+```cpp
+#include <iostream>
+
+int main() {
+    std::string name;
+    
+    // Reading from standard input (file descriptor 0)
+    std::cin >> name;
+    
+    // Writing to standard output (file descriptor 1)
+    std::cout << "Hello, " << name << "!" << std::endl;
+    
+    // Writing to standard error (file descriptor 2)
+    std::cerr << "This is an error message." << std::endl;
+
+    return 0;
+}
+
+---
+
 ## Understanding the C++ Compilation Process**
 ### **Introduction**
 Before writing C++ programs, it's crucial to understand how they are **compiled and executed**. The compilation process transforms **human-readable C++ code** into **machine-executable binary files**.  
