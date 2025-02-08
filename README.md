@@ -265,7 +265,8 @@ Create a main.cpp file:
 ```C
 #include "myHeader.hpp"
 
-int main() {
+int main()
+{
     sayHello();
     return 0;
 }
@@ -282,3 +283,53 @@ Expected Output:
 ```
 Hello from the header file!
 ```
+
+---
+
+##  Understanding Namespaces
+
+### **Definition:**
+
+A **namespace** in C++ is used to **group logically related variables, functions, and classes** to avoid **name conflicts**.
+
+- It prevents naming clashes in **large projects**.
+- The **standard library (`std`)** is inside the `std` namespace.
+- You can create **custom namespaces**.
+
+### **Example: Using a Custom Namespace**
+```cpp
+#include <iostream>
+
+// Declare a custom namespace
+namespace MyNamespace
+{
+    int x = 10;
+    void display()
+    {
+        std::cout << "Value of x: " << x << std::endl;
+    }
+}
+
+int main()
+{
+    // Accessing elements from MyNamespace
+    MyNamespace::display();
+    
+    // Using 'using' to avoid repeating MyNamespace::
+    using namespace MyNamespace;
+    std::cout << "Value of x: " << x << std::endl;
+
+    return (0);
+}
+```
+Expected Output:
+
+```
+Value of x: 10
+Value of x: 10
+```
+Key Points:
+
+✅ Use namespace::member to access elements.
+✅ Use using namespace <name> to avoid writing namespace:: repeatedly.
+✅ Best practice: Avoid using namespace std; in large projects to prevent conflicts.
