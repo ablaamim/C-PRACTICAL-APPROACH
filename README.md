@@ -95,6 +95,7 @@ In **C++**, we have three **standard streams** that are **closely tied** to thes
    - Corresponds to **file descriptor `2`**.  
    - Used to **write error messages**, ensuring they appear **immediately** (often unbuffered).
 
+
 ---
 
 ## **How They Work Together**
@@ -105,7 +106,8 @@ In **C++**, we have three **standard streams** that are **closely tied** to thes
 ```cpp
 #include <iostream>
 
-int main() {
+int main()
+{
     std::string name;
     
     // Reading from standard input (file descriptor 0)
@@ -119,11 +121,12 @@ int main() {
 
     return 0;
 }
-
+```
 ---
 
 ## Understanding the C++ Compilation Process**
 ### **Introduction**
+
 Before writing C++ programs, it's crucial to understand how they are **compiled and executed**. The compilation process transforms **human-readable C++ code** into **machine-executable binary files**.  
 
 In this chapter, we will explore:
@@ -179,11 +182,13 @@ int main()
 ```
 
 # **Why Use `-std=c++17` When Compiling C++?**
+
 When compiling a C++ program with `g++`, the flag `-std=c++17` **specifies the C++ standard version**. It tells the compiler to use the **C++17 standard**, which provides **improvements and new features** over older versions like **C++11** and **C++14**.
 
 ---
 
 ## **1️⃣ Why Not Use Older Standards?**
+
 Some **older C++ standards** are still used, but they **lack modern features** and may cause **performance or safety issues**.  
 
 | **Standard**  | **Why You Shouldn't Use It** |
@@ -210,6 +215,7 @@ g++ -E -std=c++17 main.cpp -o main.i
 * Produces the preprocessed file main.i.
 
 ## Compilation to Assembly (-S option)
+
 ```
 g++ -S -std=c++17 main.i -o main.s
 ```
